@@ -6,68 +6,49 @@
     <title>Mecamor Resort</title>
     <style>
         body { font-family: sans-serif; margin: 0; background: #f9f9f9; }
-        /* Баннер */
-        .banner-container { width: 100%; height: 180px; position: relative; display: block; }
-        .banner-img { width: 100%; height: 100%; object-fit: cover; }
-        
-        /* Контейнер для профиля (лого над баннером) */
-        .profile-section { position: relative; padding: 0 20px; margin-top: -50px; display: flex; align-items: flex-end; gap: 15px; }
-        .logo-img { width: 100px; height: 100px; border-radius: 50%; border: 4px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); object-fit: cover; background: white; }
-        
-        .header-info { margin-bottom: 10px; }
-        .title { font-size: 22px; font-weight: bold; }
-        .handle { color: #666; font-size: 14px; }
-        
-        .desc { padding: 0 20px 20px; font-size: 14px; color: #444; }
-        
-        /* Остальное */
+        .banner { width: 100%; height: 180px; object-fit: cover; display: block; }
+        .header { padding: 0 20px; margin-top: -50px; display: flex; align-items: flex-end; gap: 15px; }
+        .logo { width: 100px; height: 100px; border-radius: 50%; border: 4px solid white; background: white; object-fit: cover; }
+        .info { margin-bottom: 10px; }
+        .desc { padding: 15px 20px; color: #444; }
+        .gallery-wrap { position: relative; width: 100%; }
         .gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; }
         .gallery img { width: 100%; flex-shrink: 0; }
-        .card { background: white; margin: 10px; padding: 20px; border-radius: 8px; }
-        .btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0 10px 20px; }
+        .btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px; }
         .btn { padding: 12px; border-radius: 8px; text-align: center; color: white; text-decoration: none; font-weight: bold; }
-        .review-form input, .review-form textarea { width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; }
-        .btn-submit { background: #333; color: white; border: none; width: 100%; padding: 12px; border-radius: 6px; cursor: pointer; }
+        .card { background: white; margin: 10px; padding: 20px; border-radius: 8px; }
+        input, textarea { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #333; color: white; border: none; border-radius: 5px; }
     </style>
 </head>
 <body>
-
-<!-- Баннер -->
-<a href="IMG_20260822_031529.jpg" class="banner-container">
-    <img src="IMG_20260822_031529.jpg" class="banner-img" alt="Banner">
-</a>
-
-<!-- Логотип, который "наползает" на баннер -->
-<div class="profile-section">
-    <a href="IMG_20260822_031545.jpg">
-        <img src="IMG_20260822_031545.jpg" class="logo-img" alt="Logo">
-    </a>
-    <div class="header-info">
-        <div class="title">Mecamor Resort</div>
-        <div class="handle">@mecamor_resort</div>
+    <!-- Баннер (используем то имя, которое вы загрузите) -->
+    <img src="IMG_20260822_031529.jpg" class="banner" alt="Banner">
+    
+    <div class="header">
+        <!-- Логотип (используем то имя, которое вы загрузите) -->
+        <img src="IMG_20260822_031545.jpg" class="logo" alt="Logo">
+        <div class="info"><strong>Mecamor Resort</strong><br>@mecamor_resort</div>
     </div>
-</div>
+    <div class="desc">Լավագույն հանգիստը Եղվարդում: Լողավազան, տաղավար, մանղալ և անմոռանալի մթնոլորտ...</div>
+    
+    <div class="gallery-wrap">
+        <div class="gallery">
+            <img src="IMG_20260822_030534.jpg"><img src="IMG_20260822_030602.jpg">
+        </div>
+    </div>
 
-<div class="desc">Լավագույն հանգիստը Եղվարդում: Լողավազան, տաղավար, մանղալ և անմոռանալի մթնոլորտ...</div>
+    <div class="btn-grid">
+        <a href="tel:+37455338838" class="btn" style="background:#007bff; grid-column:span 2;">📞 055 33-88-38</a>
+        <a href="https://wa.me/37455338838" class="btn" style="background:#25d366;">💬 WhatsApp</a>
+        <a href="https://instagram.com/mecamor_resort" class="btn" style="background:#e4405f;">📸 Instagram</a>
+    </div>
 
-<!-- Остальной контент -->
-<div class="gallery">
-    <img src="IMG_20260822_030534.jpg"><img src="IMG_20260822_030602.jpg">
-</div>
-
-<div class="btn-grid">
-    <a href="tel:+37455338838" class="btn" style="background:#007bff; grid-column:span 2;">📞 055 33-88-38</a>
-    <a href="https://wa.me/37455338838" class="btn" style="background:#25d366;">💬 WhatsApp</a>
-    <a href="https://instagram.com/mecamor_resort" class="btn" style="background:#e4405f;">📸 Instagram</a>
-</div>
-
-<div class="card">
-    <form onsubmit="event.preventDefault(); alert('Շնորհակալություն!');">
+    <div class="card">
+        <strong>Կարծիքներ (4.9)</strong>
         <input type="text" placeholder="Ձեր անունը">
-        <textarea rows="3" placeholder="Ձեր կարծիքը..."></textarea>
-        <button type="submit" class="btn-submit">Ուղարկել</button>
-    </form>
-</div>
-
+        <textarea placeholder="Ձեր կարծիքը..."></textarea>
+        <button>Ուղարկել</button>
+    </div>
 </body>
 </html>
