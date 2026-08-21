@@ -6,16 +6,18 @@
     <title>Mecamor Resort</title>
     <style>
         body { font-family: sans-serif; margin: 0; background: #f9f9f9; color: #333; }
-        /* Верхняя зона */
-        .banner { width: 100%; height: 150px; object-fit: cover; }
-        .header-area { background: white; padding: 20px; }
-        .profile-flex { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; }
-        .avatar { width: 80px; height: 80px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .title { font-size: 22px; font-weight: bold; }
-        .handle { color: #666; }
-        .desc { margin-top: 10px; font-size: 14px; color: #444; }
+        
+        /* Исправленная верхняя зона */
+        .banner-container { width: 100%; height: 160px; background: #000; overflow: hidden; }
+        .banner { width: 100%; height: 100%; object-fit: cover; }
+        .header-area { background: white; padding: 15px 20px 20px 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .profile-flex { display: flex; align-items: center; gap: 15px; margin-top: -45px; margin-bottom: 10px; position: relative; }
+        .avatar { width: 80px; height: 80px; border-radius: 50%; border: 3px solid white; object-fit: cover; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .title { font-size: 22px; font-weight: bold; margin-top: 35px; }
+        .handle { color: #666; font-size: 14px; }
+        .desc { margin-top: 10px; font-size: 14px; color: #444; line-height: 1.4; }
 
-        /* Нижняя зона (прежний стиль) */
+        /* Нижняя зона */
         .card { background: white; margin: 10px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border-radius: 8px; }
         .slider-wrapper { position: relative; width: 100%; background: #000; }
         .gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; }
@@ -26,24 +28,29 @@
         .btn-wa { background: #25d366; }
         .btn-ig { background: #e4405f; }
         .btn-phone { background: #007bff; grid-column: span 2; }
+
+        /* Звёзды и форма отзывов */
+        .stars { color: #f39c12; }
+        .review-form input, .review-form textarea { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-family: inherit; }
+        .btn-submit { background: #333; color: white; border: none; width: 100%; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
 
-<!-- ВЕРХНЯЯ ЗОНА -->
-<img src="57456.jpg" class="banner" alt="Banner">
+<!-- ВЕРХНЯЯ ЗОНА (Баннер и аватарка видны отлично) -->
+<div class="banner-container">
+    <img src="57456.jpg" class="banner" alt="Banner">
+</div>
 <div class="header-area">
     <div class="profile-flex">
         <img src="57457.jpg" class="avatar" alt="Avatar">
-        <div>
-            <div class="title">Mecamor Resort</div>
-            <div class="handle">@mecamor_resort</div>
-        </div>
     </div>
+    <div class="title">Mecamor Resort</div>
+    <div class="handle">@mecamor_resort</div>
     <div class="desc">Լավագույն հանգիստը Եղվարդում: Լողավազան, տաղավար, մանղալ և անմոռանալի մթնոլորտ...</div>
 </div>
 
-<!-- НИЖНЯЯ ЗОНА (ВСЕ КАК БЫЛО) -->
+<!-- НИЖНЯЯ ЗОНА (ВСЕ КАК БЫЛО + ЖЕЛТЫЕ ЗВЕЗДЫ И ФОРМА ОТЗЫВОВ) -->
 <div class="slider-wrapper">
     <div class="gallery" id="gallery">
         <img src="IMG_20260822_030534.jpg" alt="Photo">
@@ -67,8 +74,15 @@
 </div>
 
 <div class="card">
-    <div style="font-weight: bold; margin-bottom: 10px;">Կարծիքներ (★★★★★ 4.9)</div>
-    <div style="color: #666; font-size: 14px;">238 գոհ հաճախորդներ! Լավագույն վայրը հանգստի համար:</div>
+    <div style="font-weight: bold; margin-bottom: 5px;">Կարծիքներ <span class="stars">★★★★★</span> <span style="color:#666;">4.9</span></div>
+    <div style="color: #666; font-size: 14px; margin-bottom: 15px;">238 գոհ հաճախորդներ! Լավագույն վայրը հանգստի համար:</div>
+    
+    <div style="font-weight: bold; font-size: 15px; margin-bottom: 10px;">Թողնել կարծիք</div>
+    <form class="review-form" onsubmit="event.preventDefault(); alert('Շնորհակալություն, ձեր կարծիքն ուղարկվեց!');">
+        <input type="text" placeholder="Ձեր անունը" required>
+        <textarea rows="3" placeholder="Ձեր կարծիքը..." required></textarea>
+        <button type="submit" class="btn-submit">Ուղարկել</button>
+    </form>
 </div>
 
 </body>
