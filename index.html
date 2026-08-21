@@ -9,11 +9,12 @@
         .banner-container { width: 100%; height: 160px; background: #000; display: block; }
         .banner { width: 100%; height: 100%; object-fit: cover; }
         .header-area { background: white; padding: 15px 20px 20px 20px; }
-        .profile-flex { display: flex; align-items: center; gap: 15px; margin-top: -45px; margin-bottom: 10px; cursor: pointer; text-decoration: none; }
+        .profile-flex { display: flex; align-items: center; gap: 15px; margin-top: -45px; margin-bottom: 10px; cursor: pointer; text-decoration: none; width: max-content; }
         .avatar { width: 80px; height: 80px; border-radius: 50%; border: 3px solid white; object-fit: cover; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
         .title { font-size: 22px; font-weight: bold; margin-top: 5px; }
         .handle { color: #666; font-size: 14px; }
         .desc { margin-top: 10px; font-size: 14px; color: #444; line-height: 1.4; }
+        
         /* Галерея */
         .slider-wrapper { position: relative; width: 100%; background: #000; }
         .gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; }
@@ -21,22 +22,32 @@
         .dots { position: absolute; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center; gap: 6px; }
         .dot { height: 8px; width: 8px; background: rgba(255,255,255,0.5); border-radius: 50%; }
         .dot.active { background: white; }
-        /* Исправленная ширина */
+        
+        /* Блоки и кнопки */
         .card { background: white; margin: 10px; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
         .price-box { background: #f8fafc; padding: 12px; border-radius: 8px; margin: 15px 10px; border: 1px solid #e2e8f0; }
         .btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0 10px 20px 10px; }
         .btn { padding: 12px; border-radius: 8px; font-weight: bold; text-align: center; color: white; text-decoration: none; display: flex; align-items: center; justify-content: center; }
-        /* Поля отзыва на всю ширину */
-        .review-form input, .review-form textarea { width: 100%; display: block; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; }
-        .btn-submit { background: #333; color: white; border: none; width: 100%; padding: 12px; border-radius: 6px; font-weight: bold; }
+        
+        /* Форма отзывов на всю ширину */
+        .review-form { width: 100%; }
+        .review-form input, .review-form textarea { width: 100%; display: block; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-family: inherit; }
+        .btn-submit { background: #333; color: white; border: none; width: 100%; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; }
         .stars { color: #f39c12; }
     </style>
 </head>
 <body>
 
-<a href="57456.jpg" class="banner-container"><img src="57456.jpg" class="banner"></a>
+<!-- Баннер (замените 57456.jpg на название вашей реальной картинки баннера, если нужно) -->
+<a href="57456.jpg" class="banner-container">
+    <img src="57456.jpg" class="banner" alt="Banner">
+</a>
+
 <div class="header-area">
-    <a href="57457.jpg" class="profile-flex"><img src="57457.jpg" class="avatar"></a>
+    <!-- Аватарка (замените 57457.jpg на название вашего логотипа, если нужно) -->
+    <a href="57457.jpg" class="profile-flex">
+        <img src="57457.jpg" class="avatar" alt="Avatar">
+    </a>
     <div class="title">Mecamor Resort</div>
     <div class="handle">@mecamor_resort</div>
     <div class="desc">Լավագույն հանգիստը Եղվարդում: Լողավազան, տաղավար, մանղալ և անմոռանալի մթնոլորտ...</div>
@@ -63,7 +74,8 @@
 
 <div class="card">
     <div style="font-weight:bold; margin-bottom:5px;">Կարծիքներ <span class="stars">★★★★★</span> 4.9</div>
-    <form onsubmit="event.preventDefault(); alert('Շնորհակալություն!');">
+    <div style="color: #666; font-size: 14px; margin-bottom: 15px;">238 գոհ հաճախորդներ!</div>
+    <form class="review-form" onsubmit="event.preventDefault(); alert('Շնորհակալություն!');">
         <input type="text" placeholder="Ձեր անունը" required>
         <textarea rows="3" placeholder="Ձեր կարծիքը..." required></textarea>
         <button type="submit" class="btn-submit">Ուղարկել</button>
