@@ -6,15 +6,15 @@
     <title>Mecamor Resort</title>
     <style>
         body { font-family: sans-serif; margin: 0; background: #f9f9f9; color: #333; }
-        .banner-container { width: 100%; height: 160px; background: #000; }
+        .banner-container { width: 100%; height: 160px; background: #000; display: block; }
         .banner { width: 100%; height: 100%; object-fit: cover; }
         .header-area { background: white; padding: 15px 20px 20px 20px; }
-        .profile-flex { display: flex; align-items: center; gap: 15px; margin-top: -45px; margin-bottom: 10px; }
+        .profile-flex { display: flex; align-items: center; gap: 15px; margin-top: -45px; margin-bottom: 10px; cursor: pointer; text-decoration: none; }
         .avatar { width: 80px; height: 80px; border-radius: 50%; border: 3px solid white; object-fit: cover; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        .title { font-size: 22px; font-weight: bold; margin-top: 35px; }
+        .title { font-size: 22px; font-weight: bold; margin-top: 5px; }
         .handle { color: #666; font-size: 14px; }
         .desc { margin-top: 10px; font-size: 14px; color: #444; line-height: 1.4; }
-        /* Галерея с точками */
+        /* Галерея */
         .slider-wrapper { position: relative; width: 100%; background: #000; }
         .gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; }
         .gallery img { width: 100%; flex-shrink: 0; scroll-snap-align: start; }
@@ -33,9 +33,9 @@
 </head>
 <body>
 
-<div class="banner-container"><img src="57456.jpg" class="banner"></div>
+<a href="57456.jpg" class="banner-container"><img src="57456.jpg" class="banner"></a>
 <div class="header-area">
-    <div class="profile-flex"><img src="57457.jpg" class="avatar"></div>
+    <a href="57457.jpg" class="profile-flex"><img src="57457.jpg" class="avatar"></a>
     <div class="title">Mecamor Resort</div>
     <div class="handle">@mecamor_resort</div>
     <div class="desc">Լավագույն հանգիստը Եղվարդում: Լողավազան, տաղավար, մանղալ և անմոռանալի մթնոլորտ...</div>
