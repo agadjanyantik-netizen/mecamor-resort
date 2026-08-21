@@ -2,10 +2,139 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Metamor Resort</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metamor Resort - Зона отдыха</title>
+    <style>
+        /* Общие стили */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 { margin: 0; font-size: 2.5em; }
+        header p { margin: 5px 0 0; font-size: 1.2em; opacity: 0.8; }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Секции */
+        section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; display: inline-block; }
+
+        /* Блок "О нас" */
+        .about-text { font-size: 1.1em; }
+
+        /* Галерея */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover; /* Чтобы фото не растягивались */
+            border-radius: 5px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .gallery img:hover { transform: scale(1.05); }
+
+        /* Контакты */
+        .contacts ul { list-style: none; padding: 0; font-size: 1.1em; }
+        .contacts li { margin-bottom: 10px; }
+
+        footer { text-align: center; padding: 20px; color: #777; font-size: 0.9em; }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { padding: 10px; }
+            section { padding: 20px; }
+        }
+    </style>
 </head>
 <body>
-    <h1>Добро пожаловать в Metamor Resort!</h1>
-    <p>Сайт успешно запущен!</p>
+
+<header>
+    <div class="container">
+        <h1>Metamor Resort</h1>
+        <p>Ваш идеальный отдых на природе</p>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- Секция "О нас" (Описание) -->
+    <section id="about">
+        <h2>О нас</h2>
+        <div class="about-text">
+            <p>Добро пожаловать в Metamor Resort! Мы находимся в живописном месте, где вы сможете отдохнуть от городской суеты, насладиться чистым воздухом и красивой природой.</p>
+            <p>К вашим услугам: комфортабельные домики, беседки для пикников, баня, бассейн и активные развлечения на свежем воздухе. Идеально для семейного отдыха, корпоративов и романтических выходных.</p>
+        </div>
+    </section>
+
+    <!-- Секция "Галерея" (Фотографии) -->
+    <section id="gallery">
+        <h2>Фотогалерея</h2>
+        <div class="gallery">
+            <!-- ИНСТРУКЦИЯ ДЛЯ ФОТО:
+                 Замените ссылку внутри кавычек src="..." на прямую ссылку на ваше фото.
+                 Добавляйте сколько угодно таких блоков <img> -->
+            
+            <!-- Фото 1 -->
+            <img src="https://images.unsplash.com/photo-1561501878-aabd62634533?q=80&w=500&auto=format&fit=crop" alt="Вид на зону отдыха">
+            
+            <!-- Фото 2 -->
+            <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=500&auto=format&fit=crop" alt="Комфортабельный домик">
+            
+            <!-- Фото 3 -->
+            <img src="https://images.unsplash.com/photo-1566665797739-1672de7a421e?q=80&w=500&auto=format&fit=crop" alt="Бассейн и шезлонги">
+            
+            <!-- Фото 4 -->
+            <img src="https://images.unsplash.com/photo-1515444744559-7be63e1600de?q=80&w=500&auto=format&fit=crop" alt="Беседка для отдыха">
+        </div>
+    </section>
+
+    <!-- Секция "Контакты" -->
+    <section id="contacts">
+        <h2>Контакты</h2>
+        <div class="contacts">
+            <ul>
+                <li><strong>Адрес:</strong> п. Нагорный, ул. Лесная 10</li>
+                <li><strong>Телефон:</strong> <a href="tel:+79991234567">+7 (999) 123-45-67</a></li>
+                <li><strong>Instagram:</strong> <a href="https://instagram.com/metamor_resort" target="_blank">@metamor_resort</a></li>
+                <li><strong>Режим работы:</strong> Ежедневно с 10:00 до 22:00</li>
+            </ul>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2023 Metamor Resort. Все права защищены.</p>
+    </div>
+</footer>
+
 </body>
 </html>
