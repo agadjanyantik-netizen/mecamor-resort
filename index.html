@@ -7,7 +7,6 @@
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; background: #f9f9f9; color: #333; }
         
-        /* Блок-заглушка вместо фото */
         .photo-placeholder {
             width: 100%;
             height: 220px;
@@ -35,11 +34,22 @@
         .btn-wa { background: #25d366; color: white; }
         .btn-ig { background: #e4405f; color: white; }
 
-        .section-title { font-size: 18px; font-weight: bold; margin-bottom: 15px; }
-        .review-item { border-bottom: 1px solid #eee; padding-bottom: 12px; margin-bottom: 12px; }
-        .review-author { font-weight: bold; font-size: 14px; }
-        .review-text { font-size: 14px; color: #555; margin-top: 4px; }
+        .section-title { font-size: 18px; font-weight: bold; margin-bottom: 10px; }
         
+        /* Стили для счетчика отзывов */
+        .reviews-counter {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 15px;
+        }
+        .counter-number { font-size: 20px; font-weight: 800; color: #0f172a; }
+        .counter-stars { color: #f39c12; font-size: 16px; }
+
         .review-form input, .review-form textarea { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-family: inherit; }
         .btn-submit { background: #333; color: white; border: none; width: 100%; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; }
     </style>
@@ -68,15 +78,18 @@
 </div>
 
 <div class="card">
-    <div class="section-title">Հյուրերի կարծիքները</div>
-    <div id="reviews-list">
-        <!-- Այստեղ կհայտնվեն նոր կարծիքները -->
+    <div class="section-title">Կարծիքներ</div>
+    
+    <div class="reviews-counter">
+        <div>
+            <div class="counter-number">238 կարծիք</div>
+            <div style="font-size: 13px; color: #666; margin-top: 2px;">Գոհ հյուրերի ընդհանուր գնահատականը</div>
+        </div>
+        <div class="counter-stars">★★★★★</div>
     </div>
-</div>
 
-<div class="card">
-    <div class="section-title">Թողնել կարծիք</div>
-    <form class="review-form" id="reviewForm" onsubmit="addReview(event)">
+    <div class="section-title" style="font-size: 16px; margin-top: 20px;">Թողնել կարծիք</div>
+    <form class="review-form" id="reviewForm" onsubmit="sendReview(event)">
         <input type="text" id="authorName" placeholder="Ձեր անունը" required>
         <textarea id="authorText" rows="3" placeholder="Ձեր կարծիքը..." required></textarea>
         <button type="submit" class="btn-submit">Ուղարկել</button>
@@ -84,19 +97,10 @@
 </div>
 
 <script>
-    function addReview(event) {
+    function sendReview(event) {
         event.preventDefault();
-        const name = document.getElementById('authorName').value;
-        const text = document.getElementById('authorText').value;
-        
-        const list = document.getElementById('reviews-list');
-        const newItem = document.createElement('div');
-        newItem.className = 'review-item';
-        newItem.innerHTML = `<div class="review-author">${name}</div><div class="review-text">${text} ⭐⭐⭐⭐⭐</div>`;
-        list.prepend(newItem);
-        
+        alert('Շնորհակալություն, ձեր կարծիքն ուղարկվեց!');
         document.getElementById('reviewForm').reset();
-        alert('Շնորհակալություն կարծիքի համար!');
     }
 </script>
 </body>
