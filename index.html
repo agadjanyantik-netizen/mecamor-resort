@@ -5,34 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mecamor Resort</title>
     <style>
-        body { font-family: sans-serif; margin: 0; background: #0f0f0f; color: white; }
-        .banner { width: 100%; height: 200px; object-fit: cover; }
-        .profile-section { padding: 0 20px; margin-top: -50px; display: flex; align-items: flex-end; gap: 15px; }
-        .avatar { width: 100px; height: 100px; border-radius: 50%; border: 4px solid #0f0f0f; background: white; }
-        .info { margin-bottom: 10px; }
-        .title { font-size: 24px; font-weight: bold; }
-        .handle { color: #aaa; margin-top: 2px; }
-        .desc { color: #aaa; font-size: 14px; margin-top: 10px; padding: 0 20px; line-height: 1.4; }
-        .btn-main { margin: 20px; background: white; color: black; padding: 10px 20px; border-radius: 20px; text-align: center; font-weight: bold; text-decoration: none; display: block; }
+        body { font-family: sans-serif; margin: 0; background: #f9f9f9; color: #333; }
+        /* YouTube Шапка */
+        .banner { width: 100%; height: 180px; object-fit: cover; background: #000; }
+        .header-area { background: white; padding: 20px; margin-bottom: 10px; }
+        .profile-flex { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .avatar { width: 80px; height: 80px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .title { font-size: 22px; font-weight: bold; }
+        .handle { color: #666; }
+
+        /* Прежний контент */
+        .card { background: white; margin-bottom: 10px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .slider-wrapper { position: relative; width: 100%; background: #000; }
+        .gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; }
+        .gallery img { width: 100%; flex-shrink: 0; scroll-snap-align: start; }
+        .price-box { background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 15px; }
+        .btn-main { background: #007bff; color: white; padding: 12px; border-radius: 8px; text-align: center; font-weight: bold; text-decoration: none; display: block; }
     </style>
 </head>
 <body>
 
-<img src="57456.jpg" class="banner" alt="Banner"> 
+<!-- YouTube Шапка -->
+<img src="57456.jpg" class="banner" alt="Banner">
+<div class="header-area">
+    <div class="profile-flex">
+        <img src="57457.jpg" class="avatar" alt="Avatar">
+        <div>
+            <div class="title">Mecamor Resort</div>
+            <div class="handle">@mecamor_resort</div>
+        </div>
+    </div>
+    <div>Լավագույն հանգիստը Եղվարդում: Լողավազան, տաղավար, մանղալ և անմոռանալի մթնոլորտ...</div>
+</div>
 
-<div class="profile-section">
-    <img src="57457.jpg" class="avatar" alt="Avatar">
-    <div class="info">
-        <div class="title">Mecamor Resort</div>
-        <div class="handle">@mecamor_resort</div>
+<!-- Прежний контент сайта -->
+<div class="slider-wrapper">
+    <div class="gallery" id="gallery">
+        <img src="IMG_20260822_030534.jpg" alt="Photo">
+        <img src="IMG_20260822_030602.jpg" alt="Photo">
+        <img src="IMG_20260822_030625.jpg" alt="Photo">
     </div>
 </div>
 
-<div class="desc">
-    Լավագույն հանգիստը Եղվարդում: Լողավազան, տաղավար, մանղալ և անմոռանալի մթնոլորտ... <b>էլ ավելին</b>
+<div class="card">
+    <div class="price-box">
+        <div style="text-decoration: line-through; color: #888;">Արժեքը՝ 60 000 դրամ</div>
+        <div style="font-size: 19px; font-weight: 800; color: #16a34a;">Նախնական ամրագրման դեպքում՝ 56 000 դրամ</div>
+    </div>
+    <a href="tel:+37455338838" class="btn-main">📞 Ամրագրել հիմա (055 33-88-38)</a>
 </div>
-
-<a href="tel:+37455338838" class="btn-main">Ամրագրել հիմա</a>
 
 </body>
 </html>
