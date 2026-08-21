@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="hy">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,8 +38,8 @@
 
 <div class="slider-wrapper">
     <div class="gallery" id="gallery">
-        <img src="https://i.ibb.co/jjj10Gz7/57364.jpg" alt="Бассейн">
-        <img src="https://i.ibb.co/jvKWSmVR/57365.jpg" alt="Вид ночью">
+        <img src="https://i.ibb.co/jjj10Gz7/57364.jpg" alt="Լողավազան">
+        <img src="https://i.ibb.co/jvKWSmVR/57365.jpg" alt="Գիշերային տեսարան">
     </div>
     <div class="dots" id="dots">
         <span class="dot active"></span>
@@ -50,32 +50,32 @@
 <div class="card">
     <div class="title">Metamor Resort</div>
     <div class="rating">★★★★★ 4.9</div>
-    <div class="price">от 20 000 драм</div>
+    <div class="price">սկսած 20 000 դրամից</div>
     <div class="details">
-        📍 Адрес: с. Фара, рядом с Егвардом.<br>
-        ✅ Бассейн, банкетный зал, уютная беседка и мангал.
+        📍 Հասցե՝ գ. Φара, Եղվարդի մոտ.<br>
+        ✅ Լողավազան, հանդիսությունների սրահ, հարմարավետ տաղավար և մանղալ:
     </div>
 
     <div class="contact-grid">
-        <a href="tel:+37400000000" class="btn btn-phone">📞 Позвонить</a>
+        <a href="tel:+37400000000" class="btn btn-phone">📞 Զանգահարել</a>
         <a href="https://wa.me/37400000000" class="btn btn-wa" target="_blank">💬 WhatsApp</a>
         <a href="https://instagram.com/ваш_инстаграм" class="btn btn-ig" target="_blank">📸 Instagram</a>
     </div>
 </div>
 
 <div class="card">
-    <div class="section-title">Отзывы гостей</div>
+    <div class="section-title">Հյուրերի կարծիքները</div>
     <div id="reviews-list">
-        <!-- Сюда будут добавляться новые отзывы -->
+        <!-- Այստեղ կհայտնվեն նոր կարծիքները -->
     </div>
 </div>
 
 <div class="card">
-    <div class="section-title">Оставить отзыв</div>
+    <div class="section-title">Թողնել կարծիք</div>
     <form class="review-form" id="reviewForm" onsubmit="addReview(event)">
-        <input type="text" id="authorName" placeholder="Ваше имя" required>
-        <textarea id="authorText" rows="3" placeholder="Ваш отзыв..." required></textarea>
-        <button type="submit" class="btn-submit">Отправить</button>
+        <input type="text" id="authorName" placeholder="Ձեր անունը" required>
+        <textarea id="authorText" rows="3" placeholder="Ձեր կարծիքը..." required></textarea>
+        <button type="submit" class="btn-submit">Ուղարկել</button>
     </form>
 </div>
 
@@ -90,7 +90,7 @@
     function addReview(event) {
         event.preventDefault();
         const name = document.getElementById('authorName').value;
-        const text = document.getElementById('authorText').value;
+        const text = document.getElementById('authorText',).value;
         
         const list = document.getElementById('reviews-list');
         const newItem = document.createElement('div');
@@ -99,7 +99,7 @@
         list.prepend(newItem);
         
         document.getElementById('reviewForm').reset();
-        alert('Спасибо за ваш отзыв!');
+        alert('Շնորհակալություն կարծիքի համար!');
     }
 </script>
 </body>
