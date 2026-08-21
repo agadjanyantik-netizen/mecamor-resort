@@ -5,23 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metamor Resort</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; background: #fff; }
-        .slider-wrapper { position: relative; width: 100%; height: 320px; overflow: hidden; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; background: #f9f9f9; color: #333; }
+        .slider-wrapper { position: relative; width: 100%; height: 320px; overflow: hidden; background: #000; }
         .gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; height: 320px; scroll-behavior: smooth; }
-        .gallery img { min-width: 100%; height: 320px; object-fit: cover; scroll-snap-align: start; image-rendering: -webkit-optimize-contrast; }
+        .gallery img { min-width: 100%; height: 320px; object-fit: cover; scroll-snap-align: start; }
         .dots { position: absolute; bottom: 15px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; }
-        .dot { height: 9px; width: 9px; background-color: rgba(255,255,255,0.6); border-radius: 50%; box-shadow: 0 0 3px rgba(0,0,0,0.3); }
+        .dot { height: 9px; width: 9px; background-color: rgba(255,255,255,0.6); border-radius: 50%; }
         .dot.active { background-color: white; transform: scale(1.1); }
         
-        .info-card { padding: 20px; }
-        .title { font-size: 26px; font-weight: 800; margin-bottom: 5px; }
-        .rating { color: #f39c12; font-size: 18px; margin-bottom: 15px; }
-        .price { font-size: 22px; font-weight: bold; color: #1a1a1a; margin-bottom: 15px; }
-        .details { color: #444; font-size: 16px; line-height: 1.5; }
-        .btn-row { display: flex; gap: 12px; margin-top: 25px; }
-        .btn { flex: 1; padding: 15px; border-radius: 8px; font-weight: bold; text-align: center; text-decoration: none; font-size: 16px; }
-        .btn-primary { background: #007bff; color: white; }
-        .btn-secondary { background: #f0f0f0; color: #333; }
+        .card { background: white; margin-bottom: 10px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .title { font-size: 24px; font-weight: 800; margin-bottom: 5px; }
+        .rating { color: #f39c12; font-size: 16px; margin-bottom: 12px; }
+        .price { font-size: 20px; font-weight: bold; color: #1a1a1a; margin-bottom: 15px; }
+        .details { color: #444; font-size: 15px; line-height: 1.6; }
+
+        /* Кнопки связи */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+        .btn { padding: 12px; border-radius: 8px; font-weight: bold; text-align: center; text-decoration: none; font-size: 15px; display: flex; align-items: center; justify-content: center; gap: 6px; }
+        .btn-phone { background: #007bff; color: white; grid-column: span 2; }
+        .btn-wa { background: #25d366; color: white; }
+        .btn-ig { background: #e4405f; color: white; }
+
+        /* Отзывы */
+        .section-title { font-size: 18px; font-weight: bold; margin-bottom: 15px; }
+        .review-item { border-bottom: 1px solid #eee; padding-bottom: 12px; margin-bottom: 12px; }
+        .review-item:last-child { border-bottom: none; margin-bottom: 0; }
+        .review-author { font-weight: bold; font-size: 14px; }
+        .review-text { font-size: 14px; color: #555; margin-top: 4px; }
+        
+        /* Форма отзыва */
+        .review-form input, .review-form textarea { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-family: inherit; }
+        .btn-submit { background: #333; color: white; border: none; width: 100%; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -37,7 +51,7 @@
     </div>
 </div>
 
-<div class="info-card">
+<div class="card">
     <div class="title">Metamor Resort</div>
     <div class="rating">★★★★★ 4.9</div>
     <div class="price">от 20 000 драм</div>
@@ -45,10 +59,31 @@
         📍 Адрес: с. Фара, рядом с Егвардом.<br>
         ✅ Бассейн, банкетный зал, уютная беседка и мангал.
     </div>
-    <div class="btn-row">
-        <a href="tel:+37400000000" class="btn btn-primary">Позвонить</a>
-        <a href="#" class="btn btn-secondary">Написать</a>
+
+    <div class="contact-grid">
+        <a href="tel:+37400000000" class="btn btn-phone">📞 Позвонить</a>
+        <a href="https://wa.me/37400000000" class="btn btn-wa" target="_blank">💬 WhatsApp</a>
+        <a href="https://instagram.com/ваш_инстаграм" class="btn btn-ig" target="_blank">📸 Instagram</a>
     </div>
+</div>
+
+<div class="card">
+    <div class="section-title">Отзывы гостей</div>
+    <div id="reviews-list">
+        <div class="review-item">
+            <div class="review-author">Артур</div>
+            <div class="review-text">Отличное место! Очень чисто, бассейн супер, отдохнули всей компанией на ура. Рекомендую! ⭐⭐⭐⭐⭐</div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="section-title">Оставить отзыв</div>
+    <form class="review-form" id="reviewForm" onsubmit="addReview(event)">
+        <input type="text" id="authorName" placeholder="Ваше имя" required>
+        <textarea id="authorText" rows="3" placeholder="Ваш отзыв..." required></textarea>
+        <button type="submit" class="btn-submit">Отправить</button>
+    </form>
 </div>
 
 <script>
@@ -58,6 +93,21 @@
         let index = Math.round(gallery.scrollLeft / gallery.offsetWidth);
         dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
     };
+
+    function addReview(event) {
+        event.preventDefault();
+        const name = document.getElementById('authorName').value;
+        const text = document.getElementById('authorText').value;
+        
+        const list = document.getElementById('reviews-list');
+        const newItem = document.createElement('div');
+        newItem.className = 'review-item';
+        newItem.innerHTML = `<div class="review-author">${name}</div><div class="review-text">${text} ⭐⭐⭐⭐⭐</div>`;
+        list.prepend(newItem);
+        
+        document.getElementById('reviewForm').reset();
+        alert('Спасибо за ваш отзыв!');
+    }
 </script>
 </body>
 </html>
