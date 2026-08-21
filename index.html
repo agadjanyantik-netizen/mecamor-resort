@@ -5,50 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metamor Resort</title>
     <style>
-        body { font-family: sans-serif; margin: 0; background-color: #fff; }
-        /* Галерея сверху */
-        .gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; height: 300px; }
+        body { font-family: sans-serif; margin: 0; background: #fff; }
+        /* Галерея */
+        .slider-wrapper { position: relative; width: 100%; height: 300px; overflow: hidden; }
+        .gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; height: 300px; scroll-behavior: smooth; }
         .gallery img { min-width: 100%; height: 300px; object-fit: cover; scroll-snap-align: start; }
-        /* Блок информации */
+        /* Точки */
+        .dots { position: absolute; bottom: 15px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; }
+        .dot { height: 8px; width: 8px; background-color: rgba(255,255,255,0.5); border-radius: 50%; display: inline-block; }
+        .dot.active { background-color: white; }
+        
         .info-card { padding: 20px; }
-        .title { font-size: 24px; font-weight: bold; margin-bottom: 5px; }
-        .rating { color: #f39c12; font-weight: bold; margin-bottom: 15px; }
-        .price { font-size: 22px; font-weight: bold; margin: 15px 0; color: #2c3e50; }
-        .details { color: #555; line-height: 1.6; margin-bottom: 20px; }
-        /* Кнопки */
-        .btn-row { display: flex; gap: 10px; }
-        .btn { flex: 1; padding: 12px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; text-align: center; text-decoration: none; }
+        .title { font-size: 24px; font-weight: bold; margin-bottom: 10px; }
+        .price { font-size: 20px; font-weight: bold; color: #2c3e50; margin-bottom: 15px; }
+        .btn-row { display: flex; gap: 10px; margin-top: 20px; }
+        .btn { flex: 1; padding: 12px; border-radius: 6px; font-weight: bold; text-align: center; text-decoration: none; }
         .btn-primary { background: #007bff; color: white; }
         .btn-secondary { background: #e9ecef; color: #333; }
     </style>
 </head>
 <body>
 
-    <!-- Сверху галерея фото -->
-    <div class="gallery">
+<div class="slider-wrapper">
+    <div class="gallery" id="gallery">
         <img src="https://i.ibb.co/hRRv0tB6/57366.jpg" alt="Фото 1">
         <img src="https://i.ibb.co/jjj10Gz7/57364.jpg" alt="Фото 2">
         <img src="https://i.ibb.co/jvKWSmVR/57365.jpg" alt="Фото 3">
     </div>
-
-    <!-- Инфо блок -->
-    <div class="info-card">
-        <div class="title">Metamor Resort</div>
-        <div class="rating">★★★★★ 4.9 (Отлично)</div>
-        
-        <div class="price">от 20 000 драм</div>
-        
-        <div class="details">
-            <p>📍 Адрес: с. Фара, рядом с Егвардом.</p>
-            <p>✅ Бассейн, банкетный зал, уютная беседка и мангал.</p>
-            <p>☎️ Звоните для бронирования.</p>
-        </div>
-
-        <div class="btn-row">
-            <a href="tel:+37400000000" class="btn btn-primary">Позвонить</a>
-            <a href="#" class="btn btn-secondary">Написать</a>
-        </div>
+    <div class="dots" id="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
     </div>
+</div>
 
+<div class="info-card">
+    <div class="title">Metamor Resort</div>
+    <div class="price">от 20 000 драм</div>
+    <p>📍 Адрес: с. Фара, рядом с Егвардом.</p>
+    <p>✅ Бассейн, банкетный зал, уютная беседка и мангал.</p>
+    <div class="btn-row">
+        <a href="tel:+37400000000" class="btn btn-primary">Позвонить</a>
+        <a href="#" class="btn btn-secondary">Написать</a>
+    </div>
+</div>
+
+<script>
+    const gallery = document.getElementById('gallery');
+    const dots = document.querySelectorAll('.dot');
+    gallery.onscroll = () => {
+        let index = Math.round(gallery.scrollLeft / gallery.offsetWidth);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+    };
+</script>
 </body>
 </html>
