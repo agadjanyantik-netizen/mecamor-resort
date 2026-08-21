@@ -6,60 +6,47 @@
     <title>Mecamor Resort</title>
     <style>
         body { font-family: sans-serif; margin: 0; background: #f9f9f9; color: #333; }
-        
-        /* Исправленная верхняя зона */
-        .banner-container { width: 100%; height: 160px; background: #000; overflow: hidden; }
+        .banner-container { width: 100%; height: 160px; background: #000; }
         .banner { width: 100%; height: 100%; object-fit: cover; }
-        .header-area { background: white; padding: 15px 20px 20px 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-        .profile-flex { display: flex; align-items: center; gap: 15px; margin-top: -45px; margin-bottom: 10px; position: relative; }
+        .header-area { background: white; padding: 15px 20px 20px 20px; }
+        .profile-flex { display: flex; align-items: center; gap: 15px; margin-top: -45px; margin-bottom: 10px; }
         .avatar { width: 80px; height: 80px; border-radius: 50%; border: 3px solid white; object-fit: cover; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
         .title { font-size: 22px; font-weight: bold; margin-top: 35px; }
         .handle { color: #666; font-size: 14px; }
         .desc { margin-top: 10px; font-size: 14px; color: #444; line-height: 1.4; }
-
-        /* Нижняя зона */
-        .card { background: white; margin: 10px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border-radius: 8px; }
+        /* Галерея с точками */
         .slider-wrapper { position: relative; width: 100%; background: #000; }
         .gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; }
         .gallery img { width: 100%; flex-shrink: 0; scroll-snap-align: start; }
-        .price-box { background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0; margin: 15px 10px; }
+        .dots { position: absolute; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center; gap: 6px; }
+        .dot { height: 8px; width: 8px; background: rgba(255,255,255,0.5); border-radius: 50%; }
+        .dot.active { background: white; }
+        /* Остальное */
+        .card { background: white; margin: 10px; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .price-box { background: #f8fafc; padding: 12px; border-radius: 8px; margin: 15px 10px; border: 1px solid #e2e8f0; }
         .btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0 10px 20px 10px; }
-        .btn { padding: 12px; border-radius: 8px; font-weight: bold; text-align: center; text-decoration: none; color: white; display: flex; align-items: center; justify-content: center; }
-        .btn-wa { background: #25d366; }
-        .btn-ig { background: #e4405f; }
-        .btn-phone { background: #007bff; grid-column: span 2; }
-
-        /* Звёзды и форма отзывов */
+        .btn { padding: 12px; border-radius: 8px; font-weight: bold; text-align: center; color: white; text-decoration: none; display: flex; align-items: center; justify-content: center; }
+        .review-form input, .review-form textarea { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 6px; }
+        .btn-submit { background: #333; color: white; border: none; width: 100%; padding: 12px; border-radius: 6px; font-weight: bold; }
         .stars { color: #f39c12; }
-        .review-form input, .review-form textarea { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-family: inherit; }
-        .btn-submit { background: #333; color: white; border: none; width: 100%; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
 
-<!-- ВЕРХНЯЯ ЗОНА (Баннер и аватарка видны отлично) -->
-<div class="banner-container">
-    <img src="57456.jpg" class="banner" alt="Banner">
-</div>
+<div class="banner-container"><img src="57456.jpg" class="banner"></div>
 <div class="header-area">
-    <div class="profile-flex">
-        <img src="57457.jpg" class="avatar" alt="Avatar">
-    </div>
+    <div class="profile-flex"><img src="57457.jpg" class="avatar"></div>
     <div class="title">Mecamor Resort</div>
     <div class="handle">@mecamor_resort</div>
     <div class="desc">Լավագույն հանգիստը Եղվարդում: Լողավազան, տաղավար, մանղալ և անմոռանալի մթնոլորտ...</div>
 </div>
 
-<!-- НИЖНЯЯ ЗОНА (ВСЕ КАК БЫЛО + ЖЕЛТЫЕ ЗВЕЗДЫ И ФОРМА ОТЗЫВОВ) -->
 <div class="slider-wrapper">
     <div class="gallery" id="gallery">
-        <img src="IMG_20260822_030534.jpg" alt="Photo">
-        <img src="IMG_20260822_030602.jpg" alt="Photo">
-        <img src="IMG_20260822_030625.jpg" alt="Photo">
-        <img src="IMG_20260822_030645.jpg" alt="Photo">
-        <img src="IMG_20260822_030659.jpg" alt="Photo">
-        <img src="IMG_20260822_030715.jpg" alt="Photo">
+        <img src="IMG_20260822_030534.jpg"><img src="IMG_20260822_030602.jpg"><img src="IMG_20260822_030625.jpg">
+        <img src="IMG_20260822_030645.jpg"><img src="IMG_20260822_030659.jpg"><img src="IMG_20260822_030715.jpg">
     </div>
+    <div class="dots" id="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
 </div>
 
 <div class="price-box">
@@ -68,22 +55,27 @@
 </div>
 
 <div class="btn-grid">
-    <a href="tel:+37455338838" class="btn btn-phone">📞 055 33-88-38</a>
-    <a href="https://wa.me/37455338838" class="btn btn-wa">💬 WhatsApp</a>
-    <a href="https://instagram.com/mecamor_resort" class="btn btn-ig">📸 Instagram</a>
+    <a href="tel:+37455338838" class="btn" style="background:#007bff; grid-column:span 2;">📞 055 33-88-38</a>
+    <a href="https://wa.me/37455338838" class="btn" style="background:#25d366;">💬 WhatsApp</a>
+    <a href="https://instagram.com/mecamor_resort" class="btn" style="background:#e4405f;">📸 Instagram</a>
 </div>
 
 <div class="card">
-    <div style="font-weight: bold; margin-bottom: 5px;">Կարծիքներ <span class="stars">★★★★★</span> <span style="color:#666;">4.9</span></div>
-    <div style="color: #666; font-size: 14px; margin-bottom: 15px;">238 գոհ հաճախորդներ! Լավագույն վայրը հանգստի համար:</div>
-    
-    <div style="font-weight: bold; font-size: 15px; margin-bottom: 10px;">Թողնել կարծիք</div>
-    <form class="review-form" onsubmit="event.preventDefault(); alert('Շնորհակալություն, ձեր կարծիքն ուղարկվեց!');">
+    <div style="font-weight:bold; margin-bottom:5px;">Կարծիքներ <span class="stars">★★★★★</span> 4.9</div>
+    <form onsubmit="event.preventDefault(); alert('Շնորհակալություն!');">
         <input type="text" placeholder="Ձեր անունը" required>
         <textarea rows="3" placeholder="Ձեր կարծիքը..." required></textarea>
         <button type="submit" class="btn-submit">Ուղարկել</button>
     </form>
 </div>
 
+<script>
+    const gallery = document.getElementById('gallery');
+    const dots = document.querySelectorAll('.dot');
+    gallery.onscroll = () => {
+        let index = Math.round(gallery.scrollLeft / gallery.offsetWidth);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+    };
+</script>
 </body>
 </html>
