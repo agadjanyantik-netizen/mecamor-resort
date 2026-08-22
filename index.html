@@ -5,112 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mecamor Resort</title>
     <style>
-        body { font-family: sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
-        .container { max-width: 480px; margin: 0 auto; background: #fff; padding-bottom: 20px; }
+        body { font-family: sans-serif; margin: 0; padding: 0; background: #fff; }
         .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-        .gallery-grid img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
-        .profile-section { text-align: center; padding: 10px; margin-top: -50px; position: relative; z-index: 1; }
-        .profile-logo { width: 100px; height: 100px; border-radius: 50%; border: 4px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .profile-name { font-size: 20px; font-weight: bold; margin: 10px 0 0 0; }
-        .profile-handle { color: #777; font-size: 14px; margin-bottom: 10px; }
-        .profile-bio { padding: 0 15px; font-size: 14px; color: #333; line-height: 1.4; }
-        .amenities-box { margin: 15px; border: 1px solid #e0e0e0; border-radius: 8px; padding: 15px; }
-        .amenities-list { list-style: none; padding: 0; margin: 0; }
-        .amenities-list li { padding: 10px 0; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; gap: 10px; }
-        .amenities-list li:last-child { border-bottom: none; }
-        .big-photo { width: calc(100% - 30px); margin: 15px; border-radius: 8px; }
-        .contact-btns { display: flex; gap: 10px; padding: 0 15px; margin-bottom: 15px; }
-        .btn { flex: 1; padding: 12px; text-align: center; text-decoration: none; color: #fff; font-weight: bold; border-radius: 5px; display: flex; align-items: center; justify-content: center; gap: 5px; }
-        .btn-call { background-color: #007bff; }
-        .btn-wa { background-color: #25d366; }
-        .btn-ig { background-color: #e4405f; }
-        .review-box { margin: 0 15px 15px 15px; border: 1px solid #e0e0e0; border-radius: 8px; padding: 15px; }
-        .review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-        .stars { color: #ffc107; }
-        .input-field { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
-        .submit-btn { width: 100%; padding: 12px; background-color: #333; color: #fff; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
-        /* Слайдер (точки) */
-        .slider-dots { text-align: center; padding: 10px 0; }
-        .dot { height: 10px; width: 10px; margin: 0 3px; background-color: #bbb; border-radius: 50%; display: inline-block; opacity: 0.5; }
-        .dot.active { opacity: 1; }
+        .gallery-grid img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+        .profile { text-align: center; margin-top: -50px; padding: 10px; }
+        .logo { width: 100px; height: 100px; border-radius: 50%; border: 4px solid #fff; }
+        .bio { padding: 10px; color: #333; }
+        .box { padding: 15px; border: 1px solid #eee; margin: 10px; border-radius: 8px; }
+        .btn { display: block; width: 100%; padding: 12px; margin: 5px 0; text-align: center; border-radius: 5px; color: white; text-decoration: none; font-weight: bold; }
+        .list { list-style: none; padding: 0 20px; }
+        .list li { padding: 10px 0; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 10px; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <!-- Верхняя сетка фото -->
-    <div class="gallery-grid">
-        <img src="2_5206170433484794023.jpg" alt="image">
-        <img src="IMG_20260821_195130_904.jpg" alt="image">
-        <img src="IMG_20260821_195132_936.jpg" alt="image">
-        <img src="IMG_20260821_195137_782.jpg" alt="image">
-        <img src="IMG_20260822_030534.jpg" alt="image">
-        <img src="IMG_20260822_030602.jpg" alt="image">
-    </div>
+<div class="gallery-grid">
+    <img src="2_5206170433484794023.jpg" alt="img">
+    <img src="IMG_20260821_195130_904.jpg" alt="img">
+    <img src="IMG_20260821_195132_936.jpg" alt="img">
+    <img src="IMG_20260821_195137_782.jpg" alt="img">
+    <img src="IMG_20260822_030534.jpg" alt="img">
+    <img src="IMG_20260822_030602.jpg" alt="img">
+</div>
 
-    <!-- Профиль -->
-    <div class="profile-section">
-        <img src="IMG_20260821_195130_904.jpg" alt="Mecamor Resort Logo" class="profile-logo">
-        <h1 class="profile-name">Mecamor Resort</h1>
-        <div class="profile-handle">@mecamor_resort</div>
-        <div class="profile-bio">📍 Լավագույն հանգիստը Մեծամորում։ Լողավազան, տաղավար, մանղալ և անմոռանալի մթնոլորտ...</div>
-    </div>
+<div class="profile">
+    <img src="IMG_20260821_195130_904.jpg" class="logo" alt="logo">
+    <h1>Mecamor Resort</h1>
+    <div style="color: #666;">@mecamor_resort</div>
+    <div class="bio">📍 Լավագույն հանգիստը Մեծամորում։ Լողավազան, տաղավար, մանղալ և անմոռանալի մթնոլորտ...</div>
+</div>
 
-    <!-- Список удобств -->
-    <div class="amenities-box">
-        <h3>Արժեքի մեջ ներառված է`</h3>
-        <ul class="amenities-list">
-            <li>🏠 Փակ տաղավար</li>
-            <li>❄️ Օդորակիչ</li>
-            <li>📶 Wi-Fi</li>
-            <li>🍽️ Սպասք՝ մինչև 50 անձի համար</li>
-            <li>🧊 Սառնարան</li>
-            <li>🎵 Նվագարկիչ</li>
-            <li>🚿 Տաք և սառը ջուր</li>
-            <li>🍢 Մանղալ և շամփուրներ</li>
-            <li>🏊 24 ժամ ֆիտրվող լողավազան</li>
-            <li>🛋️ Տահտակներ</li>
-            <li>🛏️ Տափչաններ</li>
-            <li>🎠 Ճոճանակ</li>
-        </ul>
-    </div>
+<div class="box">
+    <h3>Արժեքի մեջ ներառված է՝</h3>
+    <ul class="list">
+        <li>🏠 Փակ տաղավար</li>
+        <li>❄️ Օդորակիչ</li>
+        <li>📶 Wi-Fi</li>
+        <li>🍽️ Սպասք՝ մինչև 50 անձի համար</li>
+        <li>🧊 Սառնարան</li>
+        <li>🎵 Նվագարկիչ</li>
+        <li>🚿 Տաք և սառը ջուր</li>
+        <li>🍢 Մանղալ և շամփուրներ</li>
+        <li>🏊 24 ժամ ֆիլտրվող լողավազան</li>
+        <li>🛋️ Տահտակներ</li>
+        <li>🛏️ Տափչաններ</li>
+        <li>🎠 Ճոճանակ</li>
+    </ul>
+</div>
 
-    <!-- Большая картинка -->
-    <img src="IMG_20260822_030625.jpg" alt="Pool Area" class="big-photo">
-    
-    <!-- Слайдер (точки) -->
-    <div class="slider-dots">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
+<div style="padding: 15px;">
+    <img src="IMG_20260822_030625.jpg" style="width: 100%; border-radius: 8px;">
+    <div style="text-align: center; margin: 10px 0;">
+        <span style="height: 8px; width: 8px; background: #333; display: inline-block; border-radius: 50%; margin: 0 3px;"></span>
+        <span style="height: 8px; width: 8px; background: #ccc; display: inline-block; border-radius: 50%; margin: 0 3px;"></span>
+        <span style="height: 8px; width: 8px; background: #ccc; display: inline-block; border-radius: 50%; margin: 0 3px;"></span>
+        <span style="height: 8px; width: 8px; background: #ccc; display: inline-block; border-radius: 50%; margin: 0 3px;"></span>
+        <span style="height: 8px; width: 8px; background: #ccc; display: inline-block; border-radius: 50%; margin: 0 3px;"></span>
     </div>
-
-    <!-- Кнопки связи -->
-    <a href="tel:055338838" class="btn btn-call" style="margin: 0 15px 10px 15px;">📞 055 33-88-38</a>
-    <div class="contact-btns">
-        <a href="#" class="btn btn-wa">WhatsApp</a>
-        <a href="#" class="btn btn-ig">Instagram</a>
+    <a href="tel:055338838" class="btn" style="background: #007bff;">📞 055 33-88-38</a>
+    <div style="display: flex; gap: 5px;">
+        <a href="#" class="btn" style="background: #25d366;">WhatsApp</a>
+        <a href="#" class="btn" style="background: #e4405f;">Instagram</a>
     </div>
-
-    <!-- Форма отзывов -->
-    <div class="review-box">
-        <div class="review-header">
-            <h3>Կարծիքներ</h3>
-            <div class="stars">
-                ★★★★★ <span style="color: #333;">4.8</span>
-            </div>
-        </div>
-        <div style="color: #777; font-size: 14px; margin-bottom: 10px;">238 կարծիք</div>
-        <input type="text" placeholder="Ձեր անունը" class="input-field">
-        <textarea placeholder="Ձեր կարծիքը..." class="input-field" rows="3"></textarea>
-        <button class="submit-btn">Ուղարկել</button>
+    <div class="box">
+        <h4>Կարծիքներ ⭐⭐⭐⭐⭐ 4.8</h4>
+        <input type="text" placeholder="Ձեր անունը" style="width: 100%; padding: 10px; margin-bottom: 5px; box-sizing: border-box;">
+        <textarea placeholder="Ձեր կարծիքը..." style="width: 100%; padding: 10px; box-sizing: border-box;"></textarea>
+        <button style="width: 100%; padding: 10px; background: #333; color: white; border: none; border-radius: 4px;">Ուղարկել</button>
     </div>
-
 </div>
 
 </body>
